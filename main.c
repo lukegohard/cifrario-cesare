@@ -4,14 +4,6 @@
 #include <ctype.h>
 #include "helpers.h"
 
-#define RESET "\x1B[0m"
-#define RED   "\x1B[31m"
-#define GRN   "\x1B[32m"
-#define YEL   "\x1B[33m"
-#define BLU   "\x1B[34m"
-#define MAG   "\x1B[35m"
-#define CYN   "\x1B[36m"
-
 void cifratura(char *text, int key);
 void cifraturaFile(FILE *input, FILE *output, int key);
 
@@ -45,7 +37,7 @@ int main() {
             getline(&c_str, &c_len, stdin);
             c_str[strcspn(c_str, "\n")] = '\0';
 
-            printf(YEL "Inserisci la chiave per cifrare (numero intero): " RESET);
+            printf(YEL "Inserisci la chiave per cifrare (numero intero: 1-25): " RESET);
 			scanf("%d", &c_key);
 
 			cleanConsole();
@@ -67,7 +59,7 @@ int main() {
             getline(&c_input_filename, &c_len_input_filename, stdin);
             c_input_filename[strcspn(c_input_filename, "\n")] = '\0';
 
-            printf(YEL "Inserisci la chiave per cifrare (numero intero): " RESET);
+            printf(YEL "Inserisci la chiave per cifrare (numero intero: 1-25): " RESET);
 			scanf("%d", &c_file_key);
 			getchar();
 			cleanConsole();
@@ -122,7 +114,7 @@ int main() {
             getline(&d_str, &d_len, stdin);
             d_str[strcspn(d_str, "\n")] = '\0';
 
-            printf(YEL "Inserisci la chiave per decifrare (numero intero): " RESET);
+            printf(YEL "Inserisci la chiave per decifrare (numero intero: 1-25): " RESET);
 			scanf("%d", &d_key);
 
 			cleanConsole();
@@ -145,7 +137,7 @@ int main() {
             d_input_filename[strcspn(d_input_filename, "\n")] = '\0';
 
 			// chiave per decifrare file
-            printf(YEL "Inserisci la chiave per decifrare (numero intero): " RESET);
+            printf(YEL "Inserisci la chiave per decifrare (numero intero: 1-25): " RESET);
 			scanf("%d", &d_file_key);
 			getchar();
 			cleanConsole();
